@@ -20,5 +20,5 @@ javafx.runtime.build=1
 
 Run As > Run Configurations > Aba Arguments
 
---module-path <local-do-diretorio-das-libs-javafx> --add-modules=javafx.fxml,javafx.controls
+--module-path local-do-diretorio-das-libs-javafx --add-modules=javafx.fxml,javafx.controls
 
