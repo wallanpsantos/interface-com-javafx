@@ -1,15 +1,19 @@
 package gui.controller;
 
+import java.net.URL;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import gui.util.AlertasUtils;
+import gui.util.ValidacoesUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class ViewController {
+public class ViewController implements Initializable {
 
 	@FXML
 	private TextField textPrimeiroNumero;
@@ -35,5 +39,12 @@ public class ViewController {
 		} catch (Exception e) {
 			AlertasUtils.mensagemAlerta("Erro de exceção", null, e.getMessage(), AlertType.ERROR);
 		}
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		ValidacoesUtils.validaNumerosFlutuante(textPrimeiroNumero);
+		ValidacoesUtils.validaNumerosFlutuante(textSegundoNumero);
+
 	}
 }
