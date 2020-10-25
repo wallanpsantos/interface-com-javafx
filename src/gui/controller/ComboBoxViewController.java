@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import model.entities.PessoaModelEntity;
 
@@ -21,7 +22,21 @@ public class ComboBoxViewController implements Initializable {
 	private ComboBox<PessoaModelEntity> comboBoxPessoaModelEntity;
 
 	@FXML
+	private Button exibirTodosButton;
+
+	@FXML
 	private ObservableList<PessoaModelEntity> observableListaPessoas;
+
+	@FXML
+	public void onExibirTodosButton() {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (PessoaModelEntity pessoaModelEntity : comboBoxPessoaModelEntity.getItems()) {
+
+			stringBuilder.append(pessoaModelEntity.getNome()).append(", ");
+
+		}
+		JOptionPane.showMessageDialog(null, "Nomes: " + stringBuilder.toString());
+	}
 
 	@FXML
 	public void onComboBoxPessoaSelecionada() {
