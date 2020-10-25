@@ -30,10 +30,13 @@ public class ComboBoxViewController implements Initializable {
 	@FXML
 	public void onExibirTodosButton() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (PessoaModelEntity pessoaModelEntity : comboBoxPessoaModelEntity.getItems()) {
-
-			stringBuilder.append(pessoaModelEntity.getNome()).append(", ");
-
+		for (int i = 0; i < comboBoxPessoaModelEntity.getItems().size(); i++) {
+			PessoaModelEntity pessoaModelEntity = comboBoxPessoaModelEntity.getItems().get(i);
+			if (i < (comboBoxPessoaModelEntity.getItems().size() - 1)) {
+				stringBuilder.append(pessoaModelEntity.getNome()).append(", ");
+			} else {
+				stringBuilder.append(pessoaModelEntity.getNome());
+			}
 		}
 		JOptionPane.showMessageDialog(null, "Nomes: " + stringBuilder.toString());
 	}
